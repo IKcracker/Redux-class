@@ -6,17 +6,17 @@ function AddTodoItem() {
   const [item, setItem] = useState("");
   const dispatch = useDispatch();
 
-  // Date().now
-  // Date.now() ; 
 
   const handleAddItem = () => {
     dispatch(addTodoItem({ id: Date.now(), todoItem: item }));
+    setItem('')
   };
   return (
     <div>
       <input
         type="text"
         placeholder="Enter item"
+        value={item}
         onChange={(e) => setItem(e.target.value)}
       />
       <button onClick={handleAddItem}>Add</button>
